@@ -1,0 +1,28 @@
+
+
+header {
+  & .menu {
+    &__desktop {
+      display: block;
+    }
+    &__mobile {
+      display: none;
+    }
+  }
+}
+
+.work {
+  &__inner_top,
+  &__items {
+    flex-direction: row;	
+    flex-wrap: wrap;
+  }
+}
+
+
+
+.modal-content{
+  &__inner {
+    padding: 30px 60px;
+  }
+}

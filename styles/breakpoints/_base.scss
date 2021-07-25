@@ -1,0 +1,860 @@
+//ベーススタイル
+
+body {
+  font-family: 'Josefin Sans', 'Kiwi Maru', sans-serif;
+  // background-color: rgb(255, 255, 247);
+}
+
+.font-sm {
+  font-size: 14px;
+}
+.font-md {
+  font-size: 17px;
+}
+.font-lr {
+  font-size: 20px;
+}
+.font-lg {
+  font-size: 30px;
+}
+
+.mb-sm {
+  margin-bottom: 16px !important;
+}
+.mb-lg {
+  margin-bottom: 130px !important;
+}
+.pd-sm {
+  padding-bottom: 16px !important;
+}
+.pd-lg {
+  padding-bottom: 80px !important;
+}
+
+.mb-title {
+  margin-bottom: 80px !important;
+}
+
+
+.content-width {
+  width: 90%;
+  margin: 0 auto;
+  max-width: $contentMaxWidth;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+a:link, a:visited, a:hover, a:active {
+  color: $cBlack;
+}
+
+//header
+
+header {
+  @extend .font-md;
+  position: fixed;
+  z-index: 1000;
+  height: 50px;
+  width: 100%;
+  
+  &.scroll {
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 5px 10px 0px rgba(194, 194, 194, 0.2);
+  }
+  & .menu__desktop {
+    @extend .content-width;
+    display: none;
+
+    & ul {
+      display: flex;
+      height: 50px;
+      list-style-type: none;
+      align-items: center;
+      justify-content:flex-end;
+
+      & li {
+        margin-left: 30px;
+        color: $cWhite;
+
+      }
+    }
+  }
+
+}
+
+.menu__mobile {
+  display: flex;
+  justify-content:center;
+  margin: 10px 10px;
+}
+.m-menu {
+  width: 50px;
+  text-align: center;
+  color: $cWhite;
+
+  & p {
+    font-size: 12px;
+    
+  }
+}
+
+.dmenu {
+  letter-spacing: 4px;
+}
+.dmenu, .m-menu {
+  
+  & a {
+    text-decoration: none;
+  }
+  & a:link, a:visited, a:active {
+    color: $cWhite;
+  }
+  & a:hover {
+    transition: color 0.45s ease;
+    color: $cPink;
+  }
+
+  &.scroll {
+    & a:link, a:visited, a:active {
+      color: $cBlack;
+    }
+    & a:hover {
+      transition: color 0.45s ease;
+      color: $cPink;
+    }
+    & p {
+      color: $cBlack;
+    }
+  }
+}
+
+
+//title_under
+
+.underline {
+  position: relative;
+  text-align: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 0%;
+    max-width: 100px;
+    height: 2px;
+    background-color: #FF3366;
+    transition: width 1.3s ease 0.5s;
+    transform-origin: center top;
+    
+  }
+  &.inview::before {
+    width: 60%;
+    max-width: 100px;
+  }
+}
+
+
+
+
+//top
+
+.top {
+  width: 100%;
+  height: 800px;
+  background-image: url(../img/top.jpg);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  box-shadow: 0px 12px 10px 0px rgba(0, 0, 0, 0.2);
+  @extend .mb-lg;
+
+  &__inner {
+    width: 100%;
+    height: 800px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  &__maintitle {
+    margin-bottom: 10px;
+    & img {
+      width: 450px;
+      max-width: 90%;
+    }
+  }
+  &__subtitle {
+    @extend .font-sm;
+    margin-left: 10px;
+  }
+  &__moji {
+    position: absolute;
+    color: $cWhite;
+    top: 200px;
+    left: 13%;
+  }
+  &__scrollimg {
+    position: absolute;
+    top: 90%;
+    left:50%;
+    width: 70px;
+
+    display: flex;
+    
+     & img {
+       height: 80px;
+       @include animation($name: kf-arrow-anime, $iteration-count: infinite, $duration: 2s, $timing-function: linear)
+     }
+     & p {
+       transform: rotate(-90deg);
+       color: rgba(255, 255, 255, 0.521)
+     }
+  }
+}
+
+@keyframes kf-arrow-anime {
+  0%,
+  50%,
+  100% {
+    transform: translateY(-8%);
+  }
+  30% {
+    transform: none;
+  }
+}
+
+main {
+  @extend .content-width;
+}
+
+//about
+
+.about {
+  text-align: center;
+  @extend .mb-lg;
+  padding: 70px 0;
+
+  &__inner {
+    @extend .flex;
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  &__title {
+    @extend .font-lg;
+    @extend .mb-title;
+  }
+  &__imgdiv {
+    margin: 0 auto;
+  }
+  &__img {
+    width: 350px;
+    max-width: 90%;
+    padding-bottom: 30px;
+  }
+  &__text {
+    text-align: left;
+    margin: 0 auto;
+  }
+  &__text2 {
+    @extend .font-sm;
+    font-family: 'Kiwi Maru', sans-serif;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: 'about me';
+      font-size: 50px;
+      font-family: 'Josefin Sans', 'Kiwi Maru', sans-serif;
+      color: rgba(197, 193, 193, 0.5);
+      top: 50%;
+      left:5%;
+      width: 300px;
+      z-index: -9999;
+      max-width: 90%;
+    }
+  }
+}
+.icon {
+  @extend .font-lr;
+  margin-right: 10px;
+  transition: color 0.45s ease;
+
+  &:hover {
+    color: $cPink;
+  }
+}
+
+//work
+.work {
+  @extend .mb-lg;
+
+  &__back {
+    background-image: url(../img/work4.jpg);
+    background-size: cover 100vw 100vh;
+    margin: 0 calc(50% - 50vw);
+    padding: 70px 0;
+  }
+  
+
+  &__items {
+    @extend .flex;
+    align-items:center;
+    justify-content: center;
+    width: 1000px;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  &__inner_top {
+    width: 1000px;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  &__modal {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__title {
+    @extend .font-lg;
+    margin-bottom: 30px;
+  }
+
+  &__text {
+    @extend .font-sm;
+    padding-bottom: 30px;
+  }
+  &__items1 {
+    width: 250px;
+    height: 200px;
+    background-image: url(../img/portfolio_1.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  &__items2 {
+    width: 250px;
+    height: 200px;
+    background-image: url(../img/portfolio_2.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  &__items3 {
+    width: 250px;
+    height: 200px;
+    background-image: url(../img/portfolio_3.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  &__items4 {
+    width: 250px;
+    height: 200px;
+    background-image: url(../img/portfolio_4.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__items5 {
+    width: 250px;
+    height: 200px;
+    background-image: url(../img/portfolio_5.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__items-inner {
+    margin: 10px 10px;
+    width: 250px;
+    height: 200px;
+    position: relative;
+    box-shadow: 8px 8px 0px -3px #888888;
+    border: 1px solid;
+    border-color: #888888;
+    overflow: hidden;
+
+    &:hover .mask {
+      top: 0;
+    }
+  }
+}
+
+.mask {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(138, 132, 132, 0.5);
+  transition: all 0.4s ease; 
+}
+
+.caption {
+  position: absolute;
+  top: 42%;
+  left: 40%;
+  color: $cWhite;
+}
+
+
+
+.modal{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 900;
+}
+
+/* モーダル背景 */
+.modal-bg{
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+}
+
+/* モーダル本体 */
+.modal-content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: scroll;
+  width: 800px;
+  height: 550px;
+  max-width: 80%;
+  max-height: 90%;
+  padding: 20px 20px;
+  background: $cWhite;
+  @extend .font-sm;
+  font-family: 'Kiwi Maru', sans-serif;
+  word-break: break-all;
+
+  &__img {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  &__inner {
+    margin: 0 auto;
+    @extend .flex;
+  }
+
+  & img {
+    max-width: 80%;
+    width: 280px;
+    border: 1px solid;
+    border-color: $cMomo;
+  }
+  & span {
+    background:linear-gradient(transparent 60%, $cMomo 60%);
+  }
+  &__text {
+    padding-bottom: 30px;
+    width: 350px;
+    max-width: 90%;
+  }
+}
+
+/* モーダルウィンドウ表示中に記事本体を固定 */
+body.fixed {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+}
+
+.js-modal-close {
+  @extend .font-md;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+
+  & > i {
+    color: $cPink;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+}
+
+.btn__work {
+  display: inline-block;
+  text-align: center;
+  width: 150px;
+  height: 45px;
+  padding: 10px 15px;
+  color: $cBlack;
+  border: none;
+  border-radius: 3px;
+  transition: 0.4s;
+  background-color: $cMomo;
+  margin: 5px 10px 5px 0;
+
+  &:hover {
+  background: $cPink;
+  color: $cWhite;
+  text-decoration: none;
+  }
+}
+
+
+//skill
+
+.skill {
+  @extend .mb-lg;
+  padding: 70px 0;
+
+  &__title {
+    @extend .font-lg;
+    @extend .mb-title;
+  }
+  &__items {
+    @extend .flex;
+    align-items: center;
+    & ul {
+      list-style-type: none;
+      position: relative;
+      margin-top: 5px;
+      margin-bottom: 0;
+
+      & li {
+  	    height:33px;
+        width: 100px;
+
+        &::before {
+          font-family: "Font Awesome 5 Free";
+          content: '\f14a';
+          font-weight: 900;
+          position: absolute;
+          left : 1em;
+          color: $cPink; 
+
+        }
+      }
+    }
+  }
+  &__img {
+    text-align: center;
+    margin-top: 30px;
+  }
+  &__cat {
+    width: 150px;
+    max-width: 80%;
+  }
+}
+
+//contact
+
+.contact {
+  @extend .mb-lg;
+  padding: 70px 0;
+
+  &__inner {
+    @extend .font-sm;    
+  }
+  &__form {
+    @extend .flex;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  &__text {
+    margin: 0 auto;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: 'Thank you !';
+      font-size: 50px;
+      font-family: 'Josefin Sans', 'Kiwi Maru', sans-serif;
+      color: rgba(197, 193, 193, 0.5);
+      top: -30%;
+      left:10%;
+      line-height: 60px;
+      width: 400px;
+      z-index: -9999;
+      max-width: 90%;
+    }
+  }
+
+  &__title {
+    @extend .font-lg;
+    @extend .mb-title;
+  }
+}
+
+.form-submit {
+  margin: 0 auto;
+  max-width: 90%;
+}
+
+div.wrap div {
+  position: relative;
+  margin: 20px 0;
+}
+.form-submit {
+  font-family: 'Kiwi Maru', sans-serif;
+}
+
+label {
+  font-size: 0.9em;
+  position: absolute;
+  top: 0;
+  margin: 10px;
+  padding: 0 10px;
+  transition: top 0.2s ease-in-out, 
+              font-size 0.2s ease-in-out;
+}
+
+.active {
+  top: -20px;
+  font-size: 0.8em;
+}
+
+input,
+textarea {
+  width: 300px;
+  max-width: 100%;
+  border: 1px solid $cMomo;
+  background: $cMomo;
+  padding: 8px 10px;
+  color: $cBlack;
+
+  &:focus {
+    outline: none;
+  }
+} 
+
+input {
+  height: 45px;
+}
+textarea {
+  height: 90px;
+}
+
+
+
+.form-btn {
+  font-size: 0.8em;
+  height: 35px;
+  width: 100px;
+  overflow: hidden;
+  padding: 10px 10px;
+  color: $cWhite;
+  background: $cBlack;
+  line-height: 2px;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  border: none;
+  outline: none;
+
+  & span {
+    position: relative;
+  }
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    transition: all 0.5s ease-in-out;
+    transform: translateX(-96%);
+    background-color: $cPink;
+  }
+  &:hover {
+    color: $cBlack;
+    &::before {
+      transform: translateX(0%);
+    }
+  }
+}
+
+#thxMessage {
+  margin-top: 40px;
+}
+
+
+
+//footer
+
+.footer {
+  text-align: center;
+  height: 130px;
+  background-color: $cBlack;
+  color: $cWhite;
+  position: relative;
+
+  &__back {
+    width: 100%;
+    height: 60px;
+    background-image: url(../img/work4.jpg);
+  }
+
+  &__return {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $cBlack;
+    color: $cWhite;
+    font-size: 40px;
+    width: 80px;
+	  height: 80px;
+    text-align:center;
+    line-height: 80px;
+	  border-radius: 50%;
+    z-index: 50;
+  
+
+    & a {
+      display: inline-block;
+      color: $cWhite;
+      width: 100%;
+      height: 100%;
+      &:hover {
+        color: $cPink;
+        transition: color 0.45s ease;
+      }
+    }
+  }
+
+  &__inner {
+    padding-top: 60px;
+  }
+  &__icon{
+    color: $cWhite;
+    @extend .font-lr;
+    transition: color 0.45s ease;
+
+    &:hover {
+      color: $cPink;
+    }
+  }
+}
+
+
+//ふわっと上がる
+
+.appear.up {
+  & .up-item {
+    transition: opacity 0.8s, transform 0.8s;
+    opacity: 0;
+    transform: translateY(23px);
+  }
+
+  &.inview {
+    & .up-item {
+      opacity: 1;
+      transform: none;
+
+      @for $i from 1 through 10 {
+        &:nth-child(#{$i}) {
+          transition-delay: $i * 0.3s;
+        }
+      }
+    }
+  }
+}
+
+//ローダー
+
+#global-container {
+  transition: opacity 1s;
+}
+ 
+.pace-running #global-container {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.pace { 
+  z-index: 2000;
+  position: fixed;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100px;
+  height: 100px;
+}
+ 
+.pace .pace-progress {
+  transform: none !important;
+  text-align: center;
+}
+ 
+.pace .pace-progress::after {
+  content: attr(data-progress-text);
+  display: block;
+  font-weight: 100;
+  font-size: 2em;
+  color: $cPink;
+}
+
+ 
+.pace.pace-inactive {
+  display: none;
+}
+
+.pace-progress-inner {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  margin: 30px auto;
+ 
+  & > div {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: $cPink;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include animation(
+      $name: sk-bounce,
+      $duration: 2s,
+      $iteration-count: infinite,
+      $timing-function: ease-in-out
+    );
+ 
+    &:nth-child(2) {
+      animation-delay: -1s;
+    }
+  }
+}
+ 
+@keyframes sk-bounce {
+  0%,
+  100% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+
+
+
